@@ -1,0 +1,124 @@
+@charset "utf-8";
+@import url("reset.css");
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Play&display=swap');
+/* font-family: 'Monoton', cursive; */
+/* font-family: 'Play', sans-serif; */
+
+body {font-family: 'Play', sans-serif; font-size: 18px;}
+
+
+/* 부모가 body면 position 안줘도 됨 */
+.skip a {position: absolute; top: -100px; left: 0; width: 1px; height: 1px; overflow: hidden; background-color: black; color: white; text-align: center; z-index: 1; outline: none;}
+
+.skip a:focus {top: 0px; width: 100%; height: auto; padding: 10px 0;}
+
+/* position: fixed; - 모니터 크기에 맞춰짐 */
+.vid {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.5); z-index: -1;
+}
+
+/* 풀페이지 정중앙에 오게하는 공식 */
+.vid video {
+    min-width: 100%; min-height: 100%; position:absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#header {width: 700px; height: 100%; position: fixed; top: 0; left: -420px;
+        background-image: linear-gradient(-45deg, #e6fc55, #b9fb05, #97e031);    
+        transform: skew(-40deg);
+    }
+
+#header h1 {position: absolute; top: 40px; right: 150px; transform: skew(40deg);}
+#header h1 img {width: 280px;}
+
+#nav {position: absolute; right: 0; top: 200px; width: 220px;}
+
+#nav .depth1 > li > a {display: block; color: black;
+    text-align: right; padding: 15px 40px 15px 0; transition: 0.3s;}
+
+#nav .depth1 > li:first-child > a {background-color: black; color: white;}
+
+#nav .depth1 > li:hover > a {background-color: black; color: white;}
+
+#nav .depth1 > li > a > strong {display:inline-block; transform: skew(40deg);}
+
+#nav .depth1 > li > a > strong > i {margin-right: 10px;}
+
+#nav .depth1 > li {position: relative;}
+
+/* transition은 문자값에는 적용 안됨. block, none이 문자 값이라 opacity로 대체함  */
+#nav .depth2 {position: absolute; left: 0%; top: 0; width: 180px; 
+    opacity: 0; transition: all 0.3s;}
+
+#nav .depth1>li:first-child .depth2 {left: 95%; opacity: 1;}
+
+#nav .depth1>li:hover .depth2 {left:95%; opacity: 1;}
+
+#nav .depth2 a {display: block; background: rgba(0,0,0,0.5); color: white; 
+    padding: 12px 0; text-align: center; border-bottom: 1px solid #b9fb05;
+    font-size: 16px;}
+
+#nav .depth2 li:hover a {background-color: rgba(185, 251, 5, 0.5);}
+
+#nav .depth2 li {margin-bottom: 3px;}
+
+#nav .depth2 a span {transform: skew(40deg); display: inline-block;}
+
+/* sns */
+
+#sns {position: fixed; top: 60px; right: 50px;}
+
+#sns a { font-size: 25px; color: rgba(185, 252, 5, 0.5); padding: 0 10px; display: inline-block; transition: all 0.5s; }
+
+#sns a:hover { color: rgba(185, 252, 5, 1); transform: scale(1.4);
+    }
+
+
+/* text 박스 */
+
+#text {position: fixed; top: 200px; right: 70px;}
+
+#text div:nth-child(1) {color: white; font-size: 50px;}
+
+#text div:nth-child(1) span {color: #b9fb05; font-size: 160px; letter-spacing: -1px; font-family: 'Monoton', cursive;} 
+
+#text div:nth-child(2) {color: #bbb; font-size: 34px; letter-spacing: -2px; transform: translateY(-50px)}
+
+#text div:nth-child(2) span {color: #b9fb05; font-family: arial; padding-left: 20px;}
+
+
+/* side 박스 */
+
+#side {width: 800px; height: 100%; background-color: #111; position: fixed; right: -800px; top: 0; transform: skew(-40deg); transition: 0.3s; opacity: 0.5;}
+
+#side .content {width: 400px; height: 100%; background-color: #000; position: absolute; left: 135px; transition: 1s;}
+
+#side:hover {right: -500px; opacity: 1;}
+#side:hover .content {left: 50px;}
+
+
+#side .content p strong {transform: skew(40deg); display: inline-block; padding: 3px 0; color: #a0bd50;}
+
+#side .content p:nth-child(1) {position: absolute; bottom: 270px; transition: .4s;}
+#side .content p:nth-child(2) {position: absolute; bottom: 160px; transition: .8s;}
+#side .content p:nth-child(3) {position: absolute; bottom: 50px; transition: 1.2s;}
+#side .content p {left: 250px; }
+#side:hover .content p {left: 50px;}
+
+#side .content p img {opacity: 0.3; transition: 0.3s;}
+#side .content p img:hover {opacity: 1;}
+
+#side .arrow {position: absolute; bottom: 40px; left: 100px; transform: skew(40deg); font-size: 40px; color: #b9fb05; width: 150px; height: 50px;}
+
+#side:hover .arrow {left: 500px;}
+
+#side .arrow i {position: absolute; right: 0; top: 0; animation:iani 1.5s infinite linear}
+
+#side .arrow i:nth-child(1) {animation-delay: 0s;}
+#side .arrow i:nth-child(2) {animation-delay: 0.5s;}
+#side .arrow i:nth-child(3) {animation-delay: 1s;}
+
+@keyframes iani {
+    0% {}
+    100% {right: 100px; transform: scale(1.5); opacity: 0;}
+}
